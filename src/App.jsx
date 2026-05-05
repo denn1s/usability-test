@@ -20,7 +20,10 @@ export default function App() {
   })
 
   const step = STEPS[stepIndex]
-  const next = () => setStepIndex((i) => Math.min(i + 1, STEPS.length - 1))
+  const next = () => {
+    setStepIndex((i) => Math.min(i + 1, STEPS.length - 1))
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   const back = () => setStepIndex((i) => Math.max(i - 1, 0))
   const update = (key, value) => setData((d) => ({ ...d, [key]: value }))
 
